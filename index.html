@@ -94,6 +94,22 @@
         ::-webkit-scrollbar-track { background: #050511; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+
+        /* One native link covers each project card, including its title and image. */
+        .project-card { position: relative; }
+        .project-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 30;
+            border-radius: 2rem;
+            cursor: pointer;
+        }
+        .project-link:focus-visible { outline: none; }
+        .project-link:focus-visible::after {
+            outline: 2px solid #c084fc;
+            outline-offset: 4px;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand_purple selection:text-white">
@@ -240,13 +256,13 @@
 
         <div class="mb-16 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Featured <span class="text-gradient">Projects</span></h2>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto">Selected academic and professional work across data analytics, machine learning, statistical modeling, risk analytics, and interactive dashboards.</p>
+            <p class="text-gray-400 font-light max-w-2xl mx-auto">Selected academic and professional work across data analytics, machine learning, statistical modeling, risk analytics, actuarial modeling, time series, and interactive dashboards.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- Project 1: Pertamina Dashboard -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="100">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_pink/20 via-brand_purple/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(244,114,182,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(129,140,248,0.18),transparent_45%)]"></div>
                     <i class="fa-solid fa-chart-line text-7xl text-brand_pink/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -259,14 +275,36 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_pink font-semibold mb-2">Professional Project · PT Pertamina (Persero)</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_pink transition-colors">Corporate Rate Hotel Analytics Dashboard 2026</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Developed an interactive dashboard for 744 hotel records to compare publish rates with corporate offers, track recommend and revise status, identify price gaps and regional opportunities, and support follow up prioritization.</p>
-                    <a href="https://corporate-rate-hotel-pertamina.streamlit.app/" target="_blank" rel="noopener noreferrer" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                    <a href="https://corporate-rate-hotel-pertamina.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Open live dashboard: Corporate Rate Hotel Analytics Dashboard 2026 (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Live Dashboard <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Project: MindBalance Capstone -->
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="125">
+                <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_purple/20 via-brand_pink/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(192,132,252,0.22),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(244,114,182,0.17),transparent_45%)]"></div>
+                    <i class="fa-solid fa-brain text-7xl text-brand_purple/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
+                    <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-brand_purple border border-brand_purple/30">Streamlit</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">Machine Learning</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">GenAI</span>
+                    </div>
+                </div>
+                <div class="px-4 pb-4 flex-grow flex flex-col">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-brand_purple font-semibold mb-2">Capstone Project · Coding Camp 2026</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_purple transition-colors">MindBalance: Personalized Sleep & Mental Wellness Analytics</h3>
+                    <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Co-developed an AI powered wellness platform that connects sleep quality, stress, anxiety, physical activity, and family history to generate predictive insights and personalized coping strategies. The baseline classification model reached 77.82% accuracy with MAE 0.0967.</p>
+                    <a href="https://mindbalance-capstone-project.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Open live dashboard: MindBalance Personalized Sleep and Mental Wellness Analytics (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
                         View Live Dashboard <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 2: K-Medoids Women Empowerment -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="150">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="150">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_purple/20 via-brand_indigo/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(192,132,252,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(129,140,248,0.18),transparent_45%)]"></div>
                     <i class="fa-solid fa-map-location-dot text-7xl text-brand_purple/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -281,14 +319,14 @@
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_purple transition-colors">K Medoids Clustering of Women's Empowerment Across Indonesia</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Grouped 38 Indonesian provinces using four women's empowerment indicators. Robust scaling, outlier diagnostics, Silhouette Coefficient, and Davies Bouldin Index identified two clusters with distinct empowerment profiles.</p>
                     <!-- Target Drive file: 24050123120035 _Caroline Cristine Sirait_Laporan Kerja Praktik.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="24050123120035 _Caroline Cristine Sirait_Laporan Kerja Praktik.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <a href="https://drive.google.com/file/d/1U9D5qfOY_52fpB5X9eiM0SaOXCg2A4Ym/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="24050123120035 _Caroline Cristine Sirait_Laporan Kerja Praktik.pdf" aria-label="Open project report: K Medoids Clustering of Women&#x27;s Empowerment Across Indonesia (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 3: Bank Marketing Dashboard -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="200">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_indigo/20 via-brand_purple/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(129,140,248,0.22),transparent_40%),radial-gradient(circle_at_80%_75%,rgba(192,132,252,0.18),transparent_45%)]"></div>
                     <i class="fa-solid fa-chart-column text-7xl text-brand_indigo/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -302,15 +340,15 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_indigo font-semibold mb-2">Data Mining</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_indigo transition-colors">Bank Marketing Performance Dashboard</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Built a campaign performance dashboard from 45,194 bank marketing records, analyzing subscription rate, customer age, education, job, marital status, contact type, call duration, and monthly patterns to support client segmentation and campaign strategy.</p>
-                    <!-- Target Drive file: A_KELOMPOK_2_TUGAS_1_DATA_MINING.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="A_KELOMPOK_2_TUGAS_1_DATA_MINING.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <!-- Target Drive file: TUGAS DATA MINING_Caroline Cristine Sirait.pdf -->
+                    <a href="https://drive.google.com/file/d/1BAUFZ8quMSlR3xZw32H4RWo0buHAeDDi/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS DATA MINING_Caroline Cristine Sirait.pdf" aria-label="Open project report: Bank Marketing Performance Dashboard (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 4: Value at Risk -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="250">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="250">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_pink/20 via-red-500/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(244,114,182,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(248,113,113,0.14),transparent_45%)]"></div>
                     <i class="fa-solid fa-arrow-trend-down text-7xl text-brand_pink/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -325,14 +363,14 @@
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_pink transition-colors">Value at Risk Modeling for TLKM and CTRA</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Compared market risk for TLKM and CTRA using Monte Carlo Simulation and Cornish Fisher Expansion across multiple confidence levels and holding periods. Results consistently indicated higher downside risk for CTRA.</p>
                     <!-- Target Drive file: Caroline Cristine Sirait_24050123120035_TUGAS MANRISK.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="Caroline Cristine Sirait_24050123120035_TUGAS MANRISK.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <a href="https://drive.google.com/file/d/1ZAPit3UBICcipnh3rTxluXJEHXaQUH-z/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="Caroline Cristine Sirait_24050123120035_TUGAS MANRISK.pdf" aria-label="Open project report: Value at Risk Modeling for TLKM and CTRA (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 5: Feature Engineering -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="300">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-rose-500/15 via-brand_purple/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(244,63,94,0.16),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(192,132,252,0.15),transparent_45%)]"></div>
                     <i class="fa-solid fa-heart-pulse text-7xl text-rose-300/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -346,15 +384,38 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_pink font-semibold mb-2">Data Mining</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_pink transition-colors">Feature Engineering for Heart Attack Risk Prediction</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Prepared a 1,319 row medical dataset through outlier handling, feature creation, encoding, SMOTE, and feature selection, then tuned a Random Forest with GridSearchCV. Age and blood sugar emerged as the strongest predictors.</p>
-                    <!-- Target Drive file: FEATURE ENGINEERING_KELOMPOK 6_PPT.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="FEATURE ENGINEERING_KELOMPOK 6_PPT.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <!-- Target Drive file: FEATURE ENGINEERING DATA MINING_Caroline.pdf -->
+                    <a href="https://drive.google.com/file/d/1yqHtTfSItEt2hXPk3rkYhNoSwRzFRBjm/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="FEATURE ENGINEERING DATA MINING_Caroline.pdf" aria-label="Open project report: Feature Engineering for Heart Attack Risk Prediction (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Project: Actuarial Annuity -->
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="325">
+                <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_indigo/20 via-brand_purple/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(129,140,248,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(192,132,252,0.16),transparent_45%)]"></div>
+                    <i class="fa-solid fa-car-side text-7xl text-brand_indigo/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
+                    <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-brand_indigo border border-brand_indigo/30">Actuarial Math</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">Annuity</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">Excel</span>
+                    </div>
+                </div>
+                <div class="px-4 pb-4 flex-grow flex flex-col">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-brand_indigo font-semibold mb-2">Actuarial Mathematics</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_indigo transition-colors">Annuity Modeling for Bank Mandiri Vehicle Financing</h3>
+                    <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Modeled ordinary annuity and annuity due installment schemes for Bank Mandiri vehicle financing, translating vehicle price, down payment, interest rate, and loan term assumptions into monthly payment simulations using manual calculations and Excel.</p>
+                    <!-- Target Drive file: Anuitas Matematika Aktuaria_Caroline Cristine Sirait.pdf -->
+                    <a href="https://drive.google.com/file/d/1dbUvvTXXV46oSkzftl7biujhzHyvLKeP/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="Anuitas Matematika Aktuaria_Caroline Cristine Sirait.pdf" aria-label="Open project report: Annuity Modeling for Bank Mandiri Vehicle Financing (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 6: SVM Sentiment -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="350">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="350">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_purple/20 via-brand_pink/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(192,132,252,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(244,114,182,0.16),transparent_45%)]"></div>
                     <i class="fa-solid fa-comments text-7xl text-brand_purple/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -368,15 +429,15 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_purple font-semibold mb-2">Government Statistics</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_purple transition-colors">Public Sentiment Analysis on Government Job Fairs</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Analyzed TikTok comments about government Job Fairs using text preprocessing, InSet based labeling, TF IDF features, and an RBF SVM. The selected model reached 84.17% accuracy and indicated predominantly negative sentiment around job access and skill mismatch.</p>
-                    <!-- Target Drive file: KELOMPOK 9_TUGAS 3 STATISTIKA PEMERINTAHAN.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="KELOMPOK 9_TUGAS 3 STATISTIKA PEMERINTAHAN.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <!-- Target Drive file: TUGAS 3 STATISTIKA PEMERINTAHAN_Caroline Cristine Sirait.pdf -->
+                    <a href="https://drive.google.com/file/d/1SmbeDC982kXTzPHTdde7jrAhrNJU9V66/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS 3 STATISTIKA PEMERINTAHAN_Caroline Cristine Sirait.pdf" aria-label="Open project report: Public Sentiment Analysis on Government Job Fairs (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 7: K-Means TB -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="400">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="400">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_indigo/20 via-cyan-500/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(129,140,248,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.13),transparent_45%)]"></div>
                     <i class="fa-solid fa-circle-nodes text-7xl text-brand_indigo/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -390,15 +451,15 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_indigo font-semibold mb-2">Government Statistics</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_indigo transition-colors">K Means Segmentation of Tuberculosis Control Performance</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Segmented Indonesian provinces using Case Notification Rate, Treatment Coverage, child TB case detection, and health workforce readiness. Silhouette based model selection produced three clusters and highlighted substantial regional differences in program performance.</p>
-                    <!-- Target Drive file: PPT STATISTIKA PEMERINTAHAN_KELOMPOK 9_KELAS A (1).pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="PPT STATISTIKA PEMERINTAHAN_KELOMPOK 9_KELAS A (1).pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <!-- Target Drive file: Statistika Pemerintahan KMeans_Caroline Cristine Sirait.pdf -->
+                    <a href="https://drive.google.com/file/d/1XeuZ6n5HajfxaxDduB4dq6XuXg4bGX0c/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="Statistika Pemerintahan KMeans_Caroline Cristine Sirait.pdf" aria-label="Open project report: K Means Segmentation of Tuberculosis Control Performance (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 8: MLP Temperature Classification -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="450">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="450">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_pink/20 via-orange-400/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(244,114,182,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(251,146,60,0.14),transparent_45%)]"></div>
                     <i class="fa-solid fa-temperature-half text-7xl text-brand_pink/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -413,14 +474,14 @@
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_pink transition-colors">MLP Classification of Air Temperature</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Implemented a 2 3 3 Multi Layer Perceptron with backpropagation to classify temperature as Low, Medium, or High from air pressure and relative humidity. The model achieved 98.5% accuracy on 200 test observations.</p>
                     <!-- Target Drive file: TUGAS MAKALAH KLASIFIKASI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS MAKALAH KLASIFIKASI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <a href="https://drive.google.com/file/d/1sAy583N2UdUCZvVwDvD3OpBBMW_Lc0Iu/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS MAKALAH KLASIFIKASI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf" aria-label="Open project report: MLP Classification of Air Temperature (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 9: MLP Benzene Regression -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="500">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="500">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_purple/20 via-emerald-400/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(192,132,252,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.12),transparent_45%)]"></div>
                     <i class="fa-solid fa-flask-vial text-7xl text-brand_purple/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -435,14 +496,37 @@
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_purple transition-colors">MLP Prediction of Benzene Concentration</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Built an MLP regression model with lag features to predict benzene concentration from temperature. Evaluation produced RMSE 0.2011, MAPE 1.89%, and R² 0.9993 on test data.</p>
                     <!-- Target Drive file: TUGAS MAKALAH REGRESI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS MAKALAH REGRESI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <a href="https://drive.google.com/file/d/1hJGZ6LnndtPllP9tQUxjEzJ0I6yszK3x/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="TUGAS MAKALAH REGRESI TIME SERIES_CAROLINE CRISTINE SIRAIT.pdf" aria-label="Open project report: MLP Prediction of Benzene Concentration (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Project: Vector Autoregression -->
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="525">
+                <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_pink/20 via-brand_indigo/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(244,114,182,0.18),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(129,140,248,0.17),transparent_45%)]"></div>
+                    <i class="fa-solid fa-diagram-project text-7xl text-brand_pink/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
+                    <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-brand_pink border border-brand_pink/30">VAR</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">EViews</span>
+                        <span class="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-white border border-white/10">Forecasting</span>
+                    </div>
+                </div>
+                <div class="px-4 pb-4 flex-grow flex flex-col">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-brand_pink font-semibold mb-2">Multivariate Time Series</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_pink transition-colors">Vector Autoregression of Inequality, Poverty, and Unemployment</h3>
+                    <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Analyzed the dynamic relationship among Indonesia's Gini Index, poverty depth, and open unemployment rate using BPS data from 2000 to 2024. Built a VAR(2) model with Granger causality, impulse response, variance decomposition, and forecast evaluation, with Gini forecasting reaching 7.44% MAPE.</p>
+                    <!-- Target Drive file: Vector Autoregression_CAROLINE CRISTINE SIRAIT_PORTOFOLIO (1).pdf -->
+                    <a href="https://drive.google.com/file/d/11Jg-72TjSmK4ztUQLr0IDcGIL5z_0WiW/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="Vector Autoregression_CAROLINE CRISTINE SIRAIT_PORTOFOLIO (1).pdf" aria-label="Open project report: Vector Autoregression of Inequality, Poverty, and Unemployment (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Project 10: SARIMA Forecasting -->
-            <div class="glass-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="550">
+            <div class="glass-card project-card rounded-[2rem] p-4 flex flex-col group" data-aos="fade-up" data-aos-delay="550">
                 <div class="project-img-wrapper rounded-[1.5rem] bg-gradient-to-br from-brand_indigo/20 via-brand_pink/10 to-navy_light mb-6 h-56 md:h-64 relative border border-white/5 flex items-center justify-center overflow-hidden">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(129,140,248,0.20),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(244,114,182,0.14),transparent_45%)]"></div>
                     <i class="fa-solid fa-wave-square text-7xl text-brand_indigo/80 relative z-10 transition-transform duration-500 group-hover:scale-110"></i>
@@ -456,9 +540,9 @@
                     <p class="text-[10px] uppercase tracking-[0.18em] text-brand_indigo font-semibold mb-2">Time Series Analysis</p>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-brand_indigo transition-colors">SARIMA Forecasting of Dry Rubber Production</h3>
                     <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Conducted variance and mean stationarity testing, ACF and PACF identification, parameter estimation, residual diagnostics, and 12 period forecasting on monthly dry rubber production data using a seasonal SARIMA framework.</p>
-                    <!-- Target Drive file: CAROLINE CRISTINE SIRAIT_24050123120035_TUGAS 1 ASIS ARW.pdf -->
-                    <a href="https://drive.google.com/drive/folders/13Wof63Um3OyBVgvgWpwH2yZYXLZc51GE?usp=drive_link" target="_blank" rel="noopener noreferrer" data-drive-file="CAROLINE CRISTINE SIRAIT_24050123120035_TUGAS 1 ASIS ARW.pdf" class="mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
-                        Open Project Folder <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <!-- Target Drive file: CAROLINE CRISTINE SIRAIT_24050123120035_TUGAS 1 ARW.pdf -->
+                    <a href="https://drive.google.com/file/d/1wywM0OqKCjfoH43AnJ6UXbB7-ZYes6CK/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" data-drive-file="CAROLINE CRISTINE SIRAIT_24050123120035_TUGAS 1 ARW.pdf" aria-label="Open project report: SARIMA Forecasting of Dry Rubber Production (opens in a new tab)" class="project-link mt-auto text-sm font-semibold text-white flex items-center gap-2 hover:text-brand_purple transition w-max">
+                        View Project Report <i class="fa-solid fa-arrow-right -rotate-45"></i>
                     </a>
                 </div>
             </div>
